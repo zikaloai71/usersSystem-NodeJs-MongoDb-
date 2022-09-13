@@ -1,0 +1,29 @@
+{{>header}}
+{{>nav}}
+
+<section class="container my-3">
+    {{#if user}}
+    {{#if user.activeStatus}}
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-success">user id: {{user._id}}</li>
+        <li class="list-group-item list-group-item-success">user name: {{user.name}}</li>
+        <li class="list-group-item list-group-item-success">user email:{{user.email}}</li>
+        <li class="list-group-item list-group-item-success">user age:{{user.age}}</li>
+        <li class="list-group-item list-group-item-success">user status: on</li>
+    </ul>
+    {{else}}
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-danger">user id: {{user._id}}</li>
+        <li class="list-group-item list-group-item-danger">user name: {{user.name}}</li>
+        <li class="list-group-item list-group-item-danger">user email:{{user.email}}</li>
+        <li class="list-group-item list-group-item-danger">user age:{{user.age}}</li>
+        <li class="list-group-item list-group-item-danger">user status: off</li>
+    </ul>
+    {{/if}}
+
+    {{else}}
+    <div class="alert alert-danger"> no user with this id</div>
+    {{/if}}
+</section>
+
+{{>footer}}

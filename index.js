@@ -17,8 +17,6 @@ app.all("*", (req, res) => {
     pageTitle: "not found page",
   });
 });
-
 app.listen(3000, () =>
   console.log("link is" + "  " + "http://localhost:3000/")
 );
-

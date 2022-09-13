@@ -32,6 +32,28 @@ class User {
         .catch((e) => console.log(e.message));
     });
   };
+  static single = (req, res) => {
+    myConnection((db) => {
+      db.collection("users")
+        .findOne({ _id: new ObjectId(req.params.id) })
+        .then((user) => {
+          res.render("single", {
+            pageTitle: "single user",
+            user,
+          });
+        })
+        .catch((e) => console.log(e.message));
+    });
+  };
+
+  static delete = (req, res) => {
+    myConnection((db) => {
+      db.collection("users")
+        .deleteOne({ _id: new ObjectId(req.params.id) })
+        .then(res.redirect("/"))
+        .catch((e) => console.log(e.message));
+    });
+  };
 }
 
 module.exports = User;
