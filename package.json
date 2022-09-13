@@ -1,0 +1,17 @@
+{
+  "name": "usersSystem-NodeJs-MongoDb-",
+  "version": "1.0.0",
+  "description": "train on nodejs and express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
+  },
+  "author": "zakaria loai",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1",
+    "hbs": "^4.2.0",
+    "mongodb": "^4.9.1"
+  }
+}
