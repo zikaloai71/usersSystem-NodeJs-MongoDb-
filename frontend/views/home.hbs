@@ -1,1 +1,41 @@
+{{>header}}
+{{>nav}}
 
+{{#if noUsers}}
+<div class="my-3 container alert alert-danger"> no data</div>
+{{else}}
+ <section class="d-flex my-3 flex-wrap container  justify-content-between">
+        {{#each result}}
+        {{#if activeStatus}}
+        <div class="  alert alert-success">
+            <div>user ID:{{this._id}}</div>
+            <div>user Name:{{this.name}}</div>
+            <div>user Email:{{this.email}}</div>
+            <div>user Age:{{this.age}}</div>
+            <div>user Status:on</div>
+            
+       {{else}}
+          <div class="   alert  alert-danger">
+             <div>user ID:{{this._id}}</div>
+            <div>user Name:{{this.name}}</div>
+            <div>user Email:{{this.email}}</div>
+            <div>user Age:{{this.age}}</div>
+            <div>user Status:off</div>
+            
+       {{/if}}
+        <div class="d-flex  justify-content-between">
+              <a href="/single/{{this._id}}" class="w-25 btn btn-primary">Show</a>
+                <a href="/edit/{{this._id}}" class=" btn btn-warning">Edit</a>
+                <a href="/delete/{{this._id}}" class="w-25 btn btn-danger">Delete</a>
+                <a href="/activity/{{this._id}}" class=" btn btn-dark">toggle</a>
+            </div>
+        </div>
+        {{/each}}
+</section>
+
+{{/if}}
+
+
+
+
+{{>footer}}
