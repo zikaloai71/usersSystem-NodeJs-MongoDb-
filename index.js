@@ -5,6 +5,7 @@ const app = express();
 const myViews = path.join(__dirname, "frontend/views");
 const myLayouts = path.join(__dirname, "frontend/layouts");
 const myStatics = path.join(__dirname, "frontend/public");
+
 app.use(express.static(myStatics));
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
