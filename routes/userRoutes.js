@@ -10,4 +10,10 @@ router.get("/single/:id", User.single);
 
 router.get("/delete/:id", User.delete);
 
+router.get("/activity/:id", User.toggle);
+
+router.get("/edit/:id", User.edit);
+
+router.post("/edit/:id", User.editPost);
+
 module.exports = router;

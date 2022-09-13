@@ -54,6 +54,43 @@ class User {
         .catch((e) => console.log(e.message));
     });
   };
+  static toggle = (req, res) => {
+    myConnection((db) => {
+      db.collection("users")
+        .findOne({ _id: new ObjectId(req.params.id) })
+        .then((user) => {
+          db.collection("users").updateOne(
+            { _id: new ObjectId(req.params.id) },
+            { $set: { activeStatus: user.activeStatus ? "" : "on" } }
+          );
+          res.redirect("/");
+        })
+        .catch((e) => console.log(e.message));
+    });
+  };
+
+  static edit = (req, res) => {
+    myConnection((db) => {
+      db.collection("users")
+        .findOne({ _id: new ObjectId(req.params.id) })
+        .then((user) => {
+          res.render("edit", {
+            pageTitle: "edit",
+            user,
+          });
+        })
+        .catch((e) => console.log(e.message));
+    });
+  };
+
+  static editPost = (req, res) => {
+    myConnection((db) => {
+      db.collection("users")
+        .updateOne({ _id: new ObjectId(req.params.id) }, { $set: req.body })
+        .then(res.redirect(`/single/${req.params.id}`))
+        .catch((e) => console.log(e.message));
+    });
+  };
 }
 
 module.exports = User;

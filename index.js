@@ -10,7 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
 app.set("views", myViews);
 hbs.registerPartials(myLayouts);
+
 const userRouter = require("./routes/userRoutes");
+
 app.use("/", userRouter);
 app.all("*", (req, res) => {
   res.render("err404", {
